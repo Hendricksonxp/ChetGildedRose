@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 
 public class GildedRoseTest {
-    
+
     @Test
     public void normalItemAging() {
         Item[] items = new Item[]{new Item("applesauce", 10, 35)};
@@ -146,4 +146,14 @@ public class GildedRoseTest {
         Assertions.assertEquals(50, pass.quality);
     }
 
+    @Test
+    public void conjuredItemAging() {
+        Item[] items = new Item[]{new ConjuredItem("applesauce", 10, 35)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        Item applesauce = app.items[0];
+        Assertions.assertEquals("applesauce", applesauce.name);
+        Assertions.assertEquals(9, applesauce.sellIn);
+        Assertions.assertEquals(33, applesauce.quality);
+    }
 }
