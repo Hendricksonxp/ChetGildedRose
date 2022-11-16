@@ -14,9 +14,6 @@ public class ConjuredItem extends GildedItem {
         setQuality(newQuality);
     }
 
-    private void setQuality(int newQuality){
-        quality = (max(0, min(50,newQuality)));
-    }
 
     public boolean isConjured() {
         return true;
