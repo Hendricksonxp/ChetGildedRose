@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import static java.lang.Math.min;
+
 class GildedRose {
     Item[] items;
 
@@ -11,7 +13,8 @@ class GildedRose {
         for (int i = 0; i < items.length; i++) {
 
             if (isConjured(items[i])) {
-                items[i].update();
+                ConjuredItem item = (ConjuredItem) items[i];
+                item.update();
                 continue;
             }
 
@@ -62,6 +65,9 @@ class GildedRose {
                         items[i].quality = items[i].quality + 1;
                     }
                 }
+            }
+            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                items[i].quality = min(50, items[i].quality);
             }
         }
     }

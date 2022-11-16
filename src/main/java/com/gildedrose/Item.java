@@ -14,10 +14,6 @@ public class Item {
         this.quality = quality;
     }
 
-    public void update() {
-        sellIn--;
-        quality -= 2;
-    }
 
    @Override
    public String toString() {

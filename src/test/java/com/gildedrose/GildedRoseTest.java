@@ -29,7 +29,7 @@ public class GildedRoseTest {
         Assertions.assertEquals(9, applesauce.sellIn);
         Assertions.assertEquals(0, applesauce.quality);
     }
-    @Disabled
+
     @Test
     public void normalItemCantGoPast50() {
         Item[] items = new Item[] { new Item("applesauce", 10, 75) };
@@ -155,5 +155,27 @@ public class GildedRoseTest {
         Assertions.assertEquals("applesauce", applesauce.name);
         Assertions.assertEquals(9, applesauce.sellIn);
         Assertions.assertEquals(33, applesauce.quality);
+    }
+
+    @Test
+    public void conjuredItemCantGoPast0() {
+        Item[] items = new Item[] { new ConjuredItem("applesauce", 10, 0) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        Item applesauce = app.items[0];
+        Assertions.assertEquals("applesauce", applesauce.name);
+        Assertions.assertEquals(9, applesauce.sellIn);
+        Assertions.assertEquals(0, applesauce.quality);
+    }
+
+    @Test
+    public void conjuredItemCantGoPast50() {
+        Item[] items = new Item[] { new ConjuredItem("applesauce", 10, 75) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        Item applesauce = app.items[0];
+        Assertions.assertEquals("applesauce", applesauce.name);
+        Assertions.assertEquals(9, applesauce.sellIn);
+        Assertions.assertEquals(50, applesauce.quality);
     }
 }
