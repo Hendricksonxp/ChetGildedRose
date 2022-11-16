@@ -10,7 +10,7 @@ public class GildedRoseTest {
 
     @Test
     public void normalItemAging() {
-        Item[] items = new Item[]{new Item("applesauce", 10, 35)};
+        Item[] items = new Item[]{new NormalItem("applesauce", 10, 35)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item applesauce = app.items[0];
@@ -21,7 +21,7 @@ public class GildedRoseTest {
 
     @Test
     public void normalItemCantGoPast0() {
-        Item[] items = new Item[] { new Item("applesauce", 10, 0) };
+        Item[] items = new Item[] { new NormalItem("applesauce", 10, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item applesauce = app.items[0];
@@ -32,7 +32,7 @@ public class GildedRoseTest {
 
     @Test
     public void normalItemCantGoPast50() {
-        Item[] items = new Item[] { new Item("applesauce", 10, 75) };
+        Item[] items = new Item[] { new NormalItem("applesauce", 10, 75) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item applesauce = app.items[0];
@@ -43,7 +43,7 @@ public class GildedRoseTest {
 
     @Test
     public void normalItemAgingPastSellIn() {
-        Item[] items = new Item[] { new Item("applesauce", 1, 35) };
+        Item[] items = new Item[] { new NormalItem("applesauce", 1, 35) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item applesauce = app.items[0];

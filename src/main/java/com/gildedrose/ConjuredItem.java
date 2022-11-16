@@ -9,9 +9,8 @@ public class ConjuredItem extends GildedItem {
     }
 
     public void update() {
-        sellIn--;
-        int newQuality = quality -=2;
-        setQuality(newQuality);
+        adjustSellIn(-1);
+        setQuality(-2);
     }
 
 

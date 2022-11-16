@@ -7,8 +7,15 @@ public class GildedItem extends Item {
     public GildedItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
-    void setQuality(int newQuality){
-        quality = (max(0, min(50,newQuality)));
+    void setQuality(int adjustment){
+        if (sellIn < 0){
+            adjustment = adjustment * 2;
+        }
+        quality = (max(0, min(50,quality += adjustment)));
+    }
+
+    void adjustSellIn(int adjustment){
+        sellIn = sellIn += adjustment;
     }
     public boolean isConjured() {
         return false;
