@@ -22,6 +22,11 @@ class GildedRose {
                 item.update();
                 continue;
             }
+            if (isLegendary(items[i])){
+                LegendaryItem item = (LegendaryItem) items[i];
+                item.update();
+                continue;
+            }
 
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -75,6 +80,10 @@ class GildedRose {
                 items[i].quality = min(50, items[i].quality);
             }
         }
+    }
+
+    private boolean isLegendary(Item item) {
+        return item.getClass().getName().equals("com.gildedrose.LegendaryItem");
     }
 
     private boolean isNormal(Item item) {
